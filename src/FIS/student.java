@@ -1,10 +1,10 @@
 package FIS;
 
-class student extends user {
-    String universityID;
-    double GPA;
-    int academicYr;
-    int path;
+public class student extends user {
+     public String universityID;
+   Public double GPA;
+   Public int academicYr;
+   Public int path;
 
 
     public void displayInfo()

@@ -3,10 +3,8 @@ import DBConnect.dbConnect;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLDataException;
 import java.sql.Statement;
 import java.sql.*;
-import DBConnect.*;
 
 public class Login {
     private JPanel Login;
@@ -14,7 +12,8 @@ public class Login {
 
     private JButton exitButton;
     private JButton loginButton;
-    private JPasswordField passwordField1;
+    private JPasswordField pwfield;
+    private student user new student ();
     public static JFrame loginFR = new JFrame("Login Box");
 
 
@@ -29,7 +28,7 @@ public class Login {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String username = userField.getText();
-                String pw = String.valueOf(passwordField1.getPassword());
+                String pw = String.valueOf(pwfield.getPassword());
                 loginCheck(username, pw);
                 JOptionPane.showMessageDialog(null, username + "System not ready yet");
             }
@@ -54,7 +53,9 @@ public class Login {
             ResultSet RS = stml.executeQuery(query);
             RS.first();
             inUsername = frUsername;
+            user.name = frUsername;
             inPW = RS.getString("Pasword");
+            user.PW = inPW;
 
         } catch (SQLException e) {
             e.printStackTrace();
